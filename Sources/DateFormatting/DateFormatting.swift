@@ -4,20 +4,21 @@ import Foundation
 public struct DateFormatting {
 
     public static func main() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        let date = formatter.date(from: "01/01/2022")
+        let date = DateFormatting().dateFromString(dateString: "01/01/2022")
 
         print(DateFormatting().formatDate(date: date!))
     }
 
     func formatDate(date: Date) -> String {
 
-        return ""
+        return date.formatted()
     }
 
     func dateFromString(dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let date = dateFormatter.date(from: dateString)
 
-        return nil
+        return date
     }
 }
